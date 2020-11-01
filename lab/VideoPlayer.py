@@ -1,23 +1,21 @@
 #!/usr/bin/env python3
 
-from threading import Thread, Semaphore
+from threading import Thread
 from lab.Utils import Utils
-from lab.Queue import Queue, SynchronizedQueue, SynchronizedQueueSemaphore
+from lab.Queue import Queue, SynchronizedQueueSemaphore
 import cv2, os
 
 
 class VideoPlayer(object):
 
-    def __init__(self, clipFileName, frameCountLineDebugger=25, semaphoreValue=24, stdout=False, outputDir="frameData", colorFrames=False):
-        # Lock
-        #self.semaphore = Semaphore(semaphoreValue)
+    def __init__(self, clipFileName, frameCountLineDebugger=25, stdout=False, outputDir="frameData", colorFrames=False):
         # Data Fields
         self.clipFileName = clipFileName
         self.framesToLoad = Utils.getFrameSize(clipFileName)
         self.frameCountLineDebugger = frameCountLineDebugger
         # Queues
         self.frameQueue = SynchronizedQueueSemaphore()
-        self.grayQueue = SynchronizedQueueSemaphore()
+        self.displayQueue = SynchronizedQueueSemaphore()
         # Options
         self.stdout = stdout
         self.outputDir = outputDir
@@ -39,9 +37,7 @@ class VideoPlayer(object):
         # read one frame
         success, image = vidcap.read()
 
-        # Critical Section
         while success:
-            #self.semaphore.acquire()
 
             # Frames to Queue1
             self.frameQueue.put(image)
@@ -60,30 +56,26 @@ class VideoPlayer(object):
                 cv2.imwrite(f"{self.outputDir}/frame_{count:04d}.bmp", image)
 
             count += 1
-            #self.semaphore.release()
 
 
     def convertToGrayScale(self):
         count = 0
 
-        # Critical Section
         while count < self.framesToLoad:
-            #self.semaphore.acquire()
 
             # Debugger
             if Utils.debugger(count,self.frameCountLineDebugger):
                 print(f"[Thread 2] Converting frame {count} of {self.framesToLoad}")
 
             if self.colorFrames:
-                grayscaleFrame = cv2.cvtColor(self.frameQueue.get(), cv2.COLOR_BGR2RGB)
+                frameOut = cv2.cvtColor(self.frameQueue.get(), cv2.COLOR_BGR2RGB)
             else:
-                grayscaleFrame = cv2.cvtColor(self.frameQueue.get(), cv2.COLOR_BGR2GRAY)
+                frameOut = cv2.cvtColor(self.frameQueue.get(), cv2.COLOR_BGR2GRAY)
 
             count += 1
 
             # Add Frame to Queue 2
-            self.grayQueue.put(grayscaleFrame)
-            #self.semaphore.release()
+            self.displayQueue.put(frameOut)
 
 
     def display(self):
@@ -91,10 +83,9 @@ class VideoPlayer(object):
         frameDelay = 42
 
         # Critical Section
-        while self.grayQueue:
-            #self.semaphore.acquire()
+        while self.displayQueue:
 
-            frame = self.grayQueue.get()
+            frame = self.displayQueue.get()
 
             # Debugger
             if Utils.debugger(count=count,debuggerLineCount=self.frameCountLineDebugger):
@@ -102,10 +93,9 @@ class VideoPlayer(object):
 
             # Wait for 42 ms and check if the user wants to quit
             cv2.imshow("Video", frame)
-            if (cv2.waitKey(frameDelay) and 0xFF == ord("q") or self.grayQueue.empty()):
+            if (cv2.waitKey(frameDelay) and 0xFF == ord("q") or self.displayQueue.empty()):
                 break
             count += 1
-            #self.semaphore.release()
 
         cv2.destroyAllWindows()
 

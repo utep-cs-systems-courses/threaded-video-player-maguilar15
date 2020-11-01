@@ -1,5 +1,18 @@
 # Producer Consumer Lab
 
+## Run Program 
+
+Using python 
+```bash 
+python main.py 
+```
+
+Using make. 
+
+```bash 
+make 
+```
+
 For this lab you will implement a trivial producer-consumer system using
 python threads where all coordination is managed by counting and binary
 semaphores for a system of two producers and two consumers. The producers and
@@ -62,16 +75,4 @@ them in sequence
 
 Note: You may have ancillary objects and method in order to make you're code easer to understand and implement.
 
-## Run Program 
-
-Using python 
-```bash 
-python main.py 
-```
-
-Using make. 
-
-```bash 
-make 
-```
 

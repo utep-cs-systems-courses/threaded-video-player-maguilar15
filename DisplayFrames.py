@@ -1,9 +1,9 @@
-#!/usr/bin/env python3
+#!/Usr/bin/env python3
 
 import cv2
 import time
 
-# globals
+# Globals
 outputDir    = 'frames'
 frameDelay   = 42       # the answer to everything
 

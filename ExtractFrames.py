@@ -2,6 +2,7 @@
 
 import cv2
 import os
+
 # globals
 outputDir    = 'frames'
 clipFileName = 'clip.mp4'

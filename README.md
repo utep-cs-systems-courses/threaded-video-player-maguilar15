@@ -62,5 +62,16 @@ them in sequence
 
 Note: You may have ancillary objects and method in order to make you're code easer to understand and implement.
 
+## Run Program 
 
+Using python 
+```bash 
+python main.py 
+```
+
+Using make. 
+
+```bash 
+make 
+```
 

@@ -1,30 +1,36 @@
-from threading import Lock,Condition
+from threading import Lock, Condition
 
-class Queue:
 
+class SynchronizedQueue:
     def __init__(self):
+        # Queue Initialization
         self.queue = []
+        # Locks
         self.lock = Lock()
-        self.not_full = Condition(self.lock)
+        self.emptyCondition = Condition(self.lock)
+        self.fullCondition = Condition(self.lock)
+
+
+    def size(self):
+        return len(self.queue)
+
 
     def empty(self):
-        if len(self.queue) == 0:
-            return True
-        else:
-            return False
+        with self.lock:
+            return not self.size()
 
-    def put(self, x):
-        with self.not_full:
-            self._put(x)
+
+    def put(self, item):
+        with self.fullCondition:
+            self.queue.append(item)
+            self.emptyCondition.notify()
+
 
     def get(self):
-        return self._get()
+        with self.emptyCondition:
+            while not self.size():
+                self.emptyCondition.wait()
+            item = self.queue.pop(0)
+            self.fullCondition.notify()
+            return item
 
-    def _put(self, x):
-        self.queue.append(x)
-
-
-    def _get(self):
-        with self.not_full:
-            pop = self.queue.pop()
-            return pop

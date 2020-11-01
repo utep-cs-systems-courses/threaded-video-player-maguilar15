@@ -17,7 +17,5 @@ if __name__ == "__main__":
                               stdout=saveFrames,
                               outputDir=outputDir
                               )
-    try:
-        videoPlayer.start()
-    except Exception as e:
-        print("Failed: {e}".encode())
+
+    videoPlayer.start()

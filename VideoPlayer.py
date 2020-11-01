@@ -2,9 +2,8 @@
 
 from threading import Thread, Semaphore
 from Utils import Utils
-from Queue import Queue
+from Queue import SynchronizedQueue
 import cv2, os
-from queue import Queue as SynchronizedQueue
 
 
 class VideoPlayer(object):
@@ -12,7 +11,7 @@ class VideoPlayer(object):
     def __init__(self, clipFileName, frameCountLineDebugger=25, semaphoreValue=24,stdout=False,outputDir=None):
         self.semaphore = Semaphore(semaphoreValue)
         self.clipFileName = clipFileName
-        self.framesToLoad = Utils().getFrameSize(clipFileName)
+        self.framesToLoad = Utils.getFrameSize(clipFileName)
         self.frameCountLineDebugger = frameCountLineDebugger
         self.frameQueue = SynchronizedQueue()
         self.grayQueue = SynchronizedQueue()
@@ -21,9 +20,9 @@ class VideoPlayer(object):
 
 
     def start(self):
-        Thread(target=self.extractFrame, name="Extract Frames").start()
-        Thread(target=self.convertToGrayScale, name="Convert to Grayscale").start()
-        Thread(target=self.display(), name="Display Video").start()
+        Thread(target=self.extractFrame, name="Extract Frames",daemon=True).start()
+        Thread(target=self.convertToGrayScale, name="Convert to Grayscale",daemon=True).start()
+        Thread(target=self.display(), name="Display Video",daemon=True).start()
 
 
     def extractFrame(self):
@@ -45,7 +44,7 @@ class VideoPlayer(object):
             success, image = vidcap.read()
 
             # Debugger
-            if Utils().debugger(count=count,debuggerLineCount=self.frameCountLineDebugger):
+            if Utils.debugger(count=count,debuggerLineCount=self.frameCountLineDebugger):
                 print(f"[Thread 1] Reading Frame Count: {count} of {self.framesToLoad}, Status: {success}")
 
             # Create Frames
@@ -66,7 +65,7 @@ class VideoPlayer(object):
             self.semaphore.acquire()
 
             # Debugger
-            if Utils().debugger(count,self.frameCountLineDebugger):
+            if Utils.debugger(count,self.frameCountLineDebugger):
                 print(f"[Thread 2] Converting frame {count} of {self.framesToLoad}")
 
             # convert the image to grayscale
@@ -88,7 +87,7 @@ class VideoPlayer(object):
             frame = self.grayQueue.get()
 
             # Debugger
-            if Utils().debugger(count=count,debuggerLineCount=self.frameCountLineDebugger):
+            if Utils.debugger(count=count,debuggerLineCount=self.frameCountLineDebugger):
                 print(f"[Thread 3] Displaying Frame {count} of {self.framesToLoad}")
 
             # Wait for 42 ms and check if the user wants to quit

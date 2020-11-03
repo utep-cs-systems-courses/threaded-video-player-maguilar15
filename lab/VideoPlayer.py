@@ -2,7 +2,7 @@
 
 from threading import Thread
 from lab.Utils import Utils
-from lab.Queue import Queue, SynchronizedQueueSemaphore
+from lab.Queue import Queue, SemaphoreQueue
 import cv2, os
 
 
@@ -12,11 +12,11 @@ class VideoPlayer(object):
         # Data Fields
         self.clipFileName = clipFileName
         self.framesToLoad = Utils.getFrameSize(clipFileName)
-        self.frameCountLineDebugger = frameCountLineDebugger
         # Queues
-        self.frameQueue = SynchronizedQueueSemaphore()
-        self.displayQueue = SynchronizedQueueSemaphore()
+        self.frameQueue = SemaphoreQueue()
+        self.displayQueue = SemaphoreQueue()
         # Options
+        self.frameCountLineDebugger = frameCountLineDebugger
         self.stdout = stdout
         self.outputDir = outputDir
         self.colorFrames = colorFrames

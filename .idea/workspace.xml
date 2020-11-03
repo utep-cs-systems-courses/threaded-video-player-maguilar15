@@ -20,9 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f21ffb4f-dde2-480f-b93f-997c03ba26a0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Queue.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DisplayFrames.py" beforeDir="false" afterPath="$PROJECT_DIR$/DisplayFrames.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ExtractAndDisplay.py" beforeDir="false" afterPath="$PROJECT_DIR$/ExtractAndDisplay.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab/VideoPlayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab/VideoPlayer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +47,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../demo/threaded-video-player-aaherrera3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -102,6 +101,8 @@
       <workItem from="1604172022731" duration="3742000" />
       <workItem from="1604175795801" duration="3560000" />
       <workItem from="1604186710170" duration="94000" />
+      <workItem from="1604257923677" duration="984000" />
+      <workItem from="1604267694806" duration="123000" />
     </task>
     <servers />
   </component>
@@ -125,13 +126,36 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="174" y="54" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1299.741/1366.0.1280.1024@67.27.1299.741" timestamp="1604175955076" />
+    <state x="417" y="198" width="588" height="396" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604257955392">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="417" y="198" width="588" height="396" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1299.741@67.27.1299.741" timestamp="1604257955392" />
     <state x="494" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1604186799375">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="494" y="154" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741/1366.0.1280.1024@67.27.1299.741" timestamp="1604186799375" />
+    <state width="1253" height="175" key="GridCell.Tab.0.bottom" timestamp="1604258907409">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="175" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1604258907409" />
+    <state width="1253" height="175" key="GridCell.Tab.0.center" timestamp="1604258907408">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="175" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1604258907408" />
+    <state width="1253" height="175" key="GridCell.Tab.0.left" timestamp="1604258907407">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="175" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1604258907407" />
+    <state width="1253" height="175" key="GridCell.Tab.0.right" timestamp="1604258907409">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="175" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1604258907409" />
     <state x="205" y="31" key="SettingsEditor" timestamp="1604169418919">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="205" y="31" key="SettingsEditor/67.27.1299.741/1366.0.1280.1024@67.27.1299.741" timestamp="1604169418919" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/threaded_video_player_maguilar15$main.coverage" NAME="main Coverage Results" MODIFIED="1604258609541" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

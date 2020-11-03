@@ -2,7 +2,7 @@
 
 from threading import Semaphore
 
-class SynchronizedQueueSemaphore:
+class SemaphoreQueue:
     def __init__(self):
         # Queue Initialization
         self.queue = []
@@ -33,7 +33,6 @@ class Queue:
         # Queue Initialization
         self.queue = []
 
-
     def size(self):
         return len(self.queue)
 
@@ -45,5 +44,5 @@ class Queue:
         self.queue.append(item)
 
     def get(self):
-            item = self.queue.pop(0)
-            return item
+        item = self.queue.pop(0)
+        return item

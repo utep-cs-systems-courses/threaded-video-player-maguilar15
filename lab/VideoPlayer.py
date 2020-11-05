@@ -2,7 +2,7 @@
 
 from threading import Thread
 from lab.Utils import Utils
-from lab.Queue import Queue, SemaphoreQueue
+from lab.Queue import Queue, QueueSemaphore
 import cv2, os
 
 
@@ -12,20 +12,20 @@ class VideoPlayer(object):
         # Data Fields
         self.clipFileName = clipFileName
         self.framesToLoad = Utils.getFrameSize(clipFileName)
-        # Queues
-        self.frameQueue = SemaphoreQueue()
-        self.displayQueue = SemaphoreQueue()
-        # Options
         self.frameCountLineDebugger = frameCountLineDebugger
+        # Queues
+        self.frameQueue = QueueSemaphore()
+        self.displayQueue = QueueSemaphore()
+        # Options
         self.stdout = stdout
         self.outputDir = outputDir
         self.colorFrames = colorFrames
 
 
     def start(self):
-        Thread(target=self.extractFrame, name="Extract Frames",daemon=True).start()
-        Thread(target=self.convertToGrayScale, name="Convert to Grayscale",daemon=True).start()
-        Thread(target=self.display(), name="Display Video",daemon=True).start()
+        Thread(target=self.extractFrame, name="Extract Frames").start()
+        Thread(target=self.convertToGrayScale, name="Convert to Grayscale").start()
+        Thread(target=self.display, name="Display Video").start()
 
 
     def extractFrame(self):
@@ -82,7 +82,6 @@ class VideoPlayer(object):
         count = 0
         frameDelay = 42
 
-        # Critical Section
         while self.displayQueue:
 
             frame = self.displayQueue.get()

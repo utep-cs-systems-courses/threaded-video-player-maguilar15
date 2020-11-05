@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 
-from threading import Semaphore
+from threading import Semaphore, Lock
 
-class SemaphoreQueue:
-    def __init__(self):
+class QueueSemaphore:
+    def __init__(self, value=10):
         # Queue Initialization
         self.queue = []
         # Locks
-        self.emptySemaphore = Semaphore()
-        self.fullSemaphore = Semaphore()
+        self.lock = Lock()
+        self.emptySemaphore = Semaphore(value=value)
+        self.fullSemaphore = Semaphore(value=0)
 
     def size(self):
         return len(self.queue)
@@ -17,13 +18,17 @@ class SemaphoreQueue:
         return not self.size()
 
     def put(self, item):
+        self.lock.acquire()
         self.queue.append(item)
+        self.lock.release()
         self.emptySemaphore.release()
 
     def get(self):
         while not self.size():
             self.emptySemaphore.acquire()
+        self.lock.acquire()
         item = self.queue.pop(0)
+        self.lock.release()
         self.fullSemaphore.release()
         return item
 
@@ -33,6 +38,7 @@ class Queue:
         # Queue Initialization
         self.queue = []
 
+
     def size(self):
         return len(self.queue)
 
@@ -44,5 +50,5 @@ class Queue:
         self.queue.append(item)
 
     def get(self):
-        item = self.queue.pop(0)
-        return item
+            item = self.queue.pop(0)
+            return item

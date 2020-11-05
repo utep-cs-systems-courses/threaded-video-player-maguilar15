@@ -21,6 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f21ffb4f-dde2-480f-b93f-997c03ba26a0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab/Queue.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab/Queue.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab/VideoPlayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab/VideoPlayer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,6 +104,9 @@
       <workItem from="1604186710170" duration="94000" />
       <workItem from="1604257923677" duration="984000" />
       <workItem from="1604267694806" duration="123000" />
+      <workItem from="1604362921716" duration="2041000" />
+      <workItem from="1604519172090" duration="708000" />
+      <workItem from="1604531153781" duration="2385000" />
     </task>
     <servers />
   </component>
@@ -130,32 +134,40 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="417" y="198" width="588" height="396" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1299.741@67.27.1299.741" timestamp="1604257955392" />
-    <state x="494" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1604186799375">
+    <state x="494" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1604365090686">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="494" y="154" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741/1366.0.1280.1024@67.27.1299.741" timestamp="1604186799375" />
-    <state width="1253" height="175" key="GridCell.Tab.0.bottom" timestamp="1604258907409">
-      <screen x="67" y="27" width="1299" height="741" />
+    <state x="494" y="154" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741/1366.0.1280.1024@67.27.1299.741" timestamp="1604365090686" />
+    <state width="1253" height="175" key="GridCell.Tab.0.bottom" timestamp="1604533537078">
+      <screen x="67" y="27" width="2579" height="997" />
     </state>
-    <state width="1253" height="175" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1604258907409" />
-    <state width="1253" height="175" key="GridCell.Tab.0.center" timestamp="1604258907408">
-      <screen x="67" y="27" width="1299" height="741" />
+    <state width="1253" height="175" key="GridCell.Tab.0.bottom/67.27.1299.741/1366.0.1280.1024@67.27.1299.741" timestamp="1604519879286" />
+    <state width="1253" height="175" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1604532235523" />
+    <state width="1253" height="175" key="GridCell.Tab.0.bottom/67.27.2579.997@67.27.2579.997" timestamp="1604533537078" />
+    <state width="1253" height="175" key="GridCell.Tab.0.center" timestamp="1604533537074">
+      <screen x="67" y="27" width="2579" height="997" />
     </state>
-    <state width="1253" height="175" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1604258907408" />
-    <state width="1253" height="175" key="GridCell.Tab.0.left" timestamp="1604258907407">
-      <screen x="67" y="27" width="1299" height="741" />
+    <state width="1253" height="175" key="GridCell.Tab.0.center/67.27.1299.741/1366.0.1280.1024@67.27.1299.741" timestamp="1604519879286" />
+    <state width="1253" height="175" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1604532235523" />
+    <state width="1253" height="175" key="GridCell.Tab.0.center/67.27.2579.997@67.27.2579.997" timestamp="1604533537074" />
+    <state width="1253" height="175" key="GridCell.Tab.0.left" timestamp="1604533537073">
+      <screen x="67" y="27" width="2579" height="997" />
     </state>
-    <state width="1253" height="175" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1604258907407" />
-    <state width="1253" height="175" key="GridCell.Tab.0.right" timestamp="1604258907409">
-      <screen x="67" y="27" width="1299" height="741" />
+    <state width="1253" height="175" key="GridCell.Tab.0.left/67.27.1299.741/1366.0.1280.1024@67.27.1299.741" timestamp="1604519879286" />
+    <state width="1253" height="175" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1604532235522" />
+    <state width="1253" height="175" key="GridCell.Tab.0.left/67.27.2579.997@67.27.2579.997" timestamp="1604533537073" />
+    <state width="1253" height="175" key="GridCell.Tab.0.right" timestamp="1604533537075">
+      <screen x="67" y="27" width="2579" height="997" />
     </state>
-    <state width="1253" height="175" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1604258907409" />
+    <state width="1253" height="175" key="GridCell.Tab.0.right/67.27.1299.741/1366.0.1280.1024@67.27.1299.741" timestamp="1604519879286" />
+    <state width="1253" height="175" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1604532235523" />
+    <state width="1253" height="175" key="GridCell.Tab.0.right/67.27.2579.997@67.27.2579.997" timestamp="1604533537075" />
     <state x="205" y="31" key="SettingsEditor" timestamp="1604169418919">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="205" y="31" key="SettingsEditor/67.27.1299.741/1366.0.1280.1024@67.27.1299.741" timestamp="1604169418919" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/threaded_video_player_maguilar15$main.coverage" NAME="main Coverage Results" MODIFIED="1604258609541" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/threaded_video_player_maguilar15$main.coverage" NAME="main Coverage Results" MODIFIED="1604533530201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

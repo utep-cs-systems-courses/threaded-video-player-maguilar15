@@ -8,8 +8,8 @@ class QueueSemaphore:
         self.queue = []
         # Locks
         self.lock = Lock()
-        self.emptySemaphore = Semaphore(value=value)
-        self.fullSemaphore = Semaphore(value=0)
+        self.fullSemaphore = Semaphore(value=value)
+        self.emptySemaphore = Semaphore(value=0)
 
     def size(self):
         return len(self.queue)
@@ -18,6 +18,7 @@ class QueueSemaphore:
         return not self.size()
 
     def put(self, item):
+        self.fullSemaphore.acquire()
         self.lock.acquire()
         self.queue.append(item)
         self.lock.release()
